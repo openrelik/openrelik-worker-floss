@@ -1,23 +1,21 @@
-## NOTE: Bootstrap the new worker with `bash bootstrap.sh`!
-
-# Openrelik worker TEMPLATEWORKERNAME
+# Openrelik worker FLOSS
 ## Description
-Enter a good description of your worker here.
+Run FLARE's FLOSS string finder on supported file types.
 
 ## Deploy
 Add the below configuration to the OpenRelik docker-compose.yml file.
 
 ```
-openrelik-worker-TEMPLATEWORKERNAME:
-    container_name: openrelik-worker-TEMPLATEWORKERNAME
-    image: ghcr.io/openrelik/openrelik-worker-TEMPLATEWORKERNAME:latest
+openrelik-worker-floss:
+    container_name: openrelik-worker-floss
+    image: ghcr.io/openrelik/openrelik-worker-floss:latest
     restart: always
     environment:
       - REDIS_URL=redis://openrelik-redis:6379
       - OPENRELIK_PYDEBUG=0
     volumes:
       - ./data:/usr/share/openrelik/data
-    command: "celery --app=src.app worker --task-events --concurrency=4 --loglevel=INFO -Q openrelik-worker-TEMPLATEWORKERNAME"
+    command: "celery --app=src.app worker --task-events --concurrency=4 --loglevel=INFO -Q openrelik-worker-floss"
     # ports:
       # - 5678:5678 # For debugging purposes.
 ```
