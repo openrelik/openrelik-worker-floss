@@ -7,7 +7,9 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 # Install poetry and any other dependency that your worker needs.
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-dev \
     python3-poetry \
+    build-essential \
     # Add your dependencies here
     && rm -rf /var/lib/apt/lists/*
 
@@ -19,9 +21,9 @@ ENV POETRY_NO_INTERACTION=1 \
 
 # Configure debugging
 ARG OPENRELIK_PYDEBUG
-ENV OPENRELIK_PYDEBUG ${OPENRELIK_PYDEBUG:-0}
+ENV OPENRELIK_PYDEBUG=${OPENRELIK_PYDEBUG:-0}
 ARG OPENRELIK_PYDEBUG_PORT
-ENV OPENRELIK_PYDEBUG_PORT ${OPENRELIK_PYDEBUG_PORT:-5678}
+ENV OPENRELIK_PYDEBUG_PORT=${OPENRELIK_PYDEBUG_PORT:-5678}
 
 # Set working directory
 WORKDIR /openrelik
