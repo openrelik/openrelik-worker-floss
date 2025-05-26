@@ -1,12 +1,12 @@
 # Showcase this worker on https://openrelik.org/marketplace
-publish: false
+publish: true
 
 # Worker Metadata. This section is required.
-display_name: User-friendly name of your worker
-description: Brief description of your workers purpose and functionality.
+display_name: FLARE Obfuscated String Solver (FLOSS)
+description: The FLARE Obfuscated String Solver uses advanced static analysis techniques to automatically extract and deobfuscate all strings from malware binaries.
 
 # Optional: Third-Party Tools Used by the Worker.
-tools:
-  - display_name: User-friendly name of the tool
-    description: Brief description of the tool
-    url: http://example.com # URL for more info about the tool
+# tools:
+#   - display_name: User-friendly name of the tool
+#     description: Brief description of the tool
+#     url: http://example.com # URL for more info about the tool
