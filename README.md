@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/github/openrelik/openrelik-worker-floss/graph/badge.svg?token=riFvCijyWc)](https://codecov.io/github/openrelik/openrelik-worker-floss)
+
 # Openrelik worker FLOSS
 ## Description
 Run FLARE's FLOSS string finder on supported file types.
