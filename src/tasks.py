@@ -44,10 +44,10 @@ TASK_METADATA = {
 @celery.task(bind=True, name=TASK_NAME, metadata=TASK_METADATA)
 def command(
     self,
-    pipe_result: str = "",
+    pipe_result: str = None,
     input_files: list | None = None,
-    output_path: str = "",
-    workflow_id: str = "",
+    output_path: str = None,
+    workflow_id: str = None,
     task_config: dict | None = None,
 ) -> str:
     """Run floss on input files.
