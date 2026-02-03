@@ -1,23 +1,33 @@
-[tool.poetry]
+[project]
 name = "openrelik-worker-floss"
 version = "0.1.0"
 description = "Worker to run FLARE Obfuscated String Solver"
-authors = ["Juan Leaniz <juan.leaniz@gmail.com>"]
+authors = [{ name = "Juan Leaniz", email = "juan.leaniz@gmail.com" }]
+requires-python = "<4.0,>=3.11"
 readme = "README.md"
-package-mode = false
 
-[tool.poetry.dependencies]
-python = "<4.0,>=3.11"
-celery = { extras = ["redis"], version = "^5.4.0" }
-openrelik-worker-common = "^0.17.1"
-flare-floss = "^3.1.1"
+dependencies = [
+    "celery[redis]>=5.4.0,<6",
+    "openrelik-worker-common>=0.17.1,<0.18",
+    "flare-floss>=3.1.1,<4",
+]
 
-[tool.poetry.group.test.dependencies]
-pytest = "*"
-pytest-env = "*"
-pytest-cov = "^5.0.0"
-pytest-mock = "^3.14.0"
-pytest-celery = "*"
+[dependency-groups]
+test = [
+    "pytest",
+    "pytest-env",
+    "pytest-cov>=5.0.0,<6",
+    "pytest-mock>=3.14.0,<4",
+    "pytest-celery",
+]
+
+[tool.uv]
+package = false
+default-groups = ["test"]
+
+[build-system]
+requires = ["uv_build>=0.9.0,<0.10.0"]
+build-backend = "uv_build"
 
 [tool.pytest.ini_options]
 env = [
@@ -26,7 +36,3 @@ env = [
     "CELERY_BROKER_URL=redis://localhost:6379/0",
     "CELERY_RESULT_BACKEND=redis://localhost:6379/0",
 ]
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
