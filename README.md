@@ -1,3 +1,8 @@
+> [!CAUTION]  
+> # NOTICE - DO NOT USE
+> This repository has been archived and moved to https://github.com/openrelik/openrelik-workers/}
+
+
 [![codecov](https://codecov.io/github/openrelik/openrelik-worker-floss/graph/badge.svg?token=riFvCijyWc)](https://codecov.io/github/openrelik/openrelik-worker-floss)
 
 # Openrelik worker FLOSS
